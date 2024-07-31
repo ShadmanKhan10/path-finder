@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import Bg from "../assets/Bg.png";
 import Lottie from "react-lottie";
 import blink from "../assets/blink.json";
+import Dubai from "../assets/Dubai.jpg";
 import "./Background.css";
 
 export default function Background() {
   const [visibility, setVisibility] = useState("hidden");
   const [top, setTop] = useState();
   const [right, setRight] = useState();
+  const [toggle, setToggle] = useState(false);
 
   const defaultOptions = {
     loop: true,
@@ -279,6 +281,7 @@ export default function Background() {
   const handleClick = (data) => {
     setTop(data.top);
     setRight(data.right);
+    setToggle(true);
     console.log(data.top);
     console.log(data.right);
     return visibility === "hidden"
@@ -286,57 +289,95 @@ export default function Background() {
       : setVisibility("hidden");
   };
 
+  const handleToggle = () => {
+    setToggle(false);
+  };
+
   return (
     <div>
-      <img className="bg-image" src={Bg} alt="background" />
-      <div className="main-text-container">
-        <div className="text-container1">
-          {details.map((data, id) => (
-            <p
-              onClick={() => handleClick(data)}
-              className="container1-text"
-              key={id}
-            >
-              {data.id}. {data.text}
-            </p>
-          ))}
+      {toggle === false ? (
+        <div>
+          <img className="bg-image" src={Bg} alt="background" />
+          <div className="main-text-container">
+            <div className="text-container1">
+              {details.map((data, id) => (
+                <p
+                  onClick={() => handleClick(data)}
+                  className="container1-text"
+                  key={id}
+                >
+                  {data.id}. {data.text}
+                </p>
+              ))}
+            </div>
+            <div className="text-container2">
+              <div className="semi-container1">
+                {details2.map((detail, id) => (
+                  <p className="container1-text" key={id}>
+                    {detail.id}. {detail.text}
+                  </p>
+                ))}
+              </div>
+              <div className="semi-container2">
+                <p className="container-text-heading">SADIYAT ISLAND</p>
+                {details3.map((detail, id) => (
+                  <p className="container1-text" key={id}>
+                    {detail.id}. {detail.text}
+                  </p>
+                ))}
+              </div>
+              <div className="semi-container3">
+                <p className="container-text-heading">PREMIUM SPACES</p>
+                {details4.map((detail, id) => (
+                  <p onClick={handleClick} className="container1-text" key={id}>
+                    {detail.id}. {detail.text}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div
+            className="indicater"
+            style={{
+              top: top,
+              right: right,
+              visibility: visibility,
+            }}
+          >
+            <Lottie options={defaultOptions} className="lottie" />
+          </div>
         </div>
-        <div className="text-container2">
-          <div className="semi-container1">
-            {details2.map((detail, id) => (
-              <p className="container1-text" key={id}>
-                {detail.id}. {detail.text}
+      ) : (
+        <div>
+          <img className="bg-image" src={Bg} alt="background" />
+          <div className="img-des-container">
+            <div className="tour-div">
+              <img className="image-tour" src={Dubai} alt="image" />
+            </div>
+            <div className="des-container">
+              <p className="description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa
+                reiciendis tempora, nam, numquam adipisci sit perferendis odio
+                quas corrupti aperiam tenetur id veritatis molestias dignissimos
+                ut. Necessitatibus corporis omnis distinctio. Placeat, ut
+                distinctio illo, illum ratione iusto fuga dolorem est nesciunt
+                nisi temporibus natus accusantium saepe, nihil mollitia
+                voluptatum ducimus in! Totam, sint asperiores. Atque adipisci in
+                possimus ab sequi. Odio ipsa et doloribus deleniti incidunt
+                possimus unde accusamus distinctio excepturi doloremque,
+                reprehenderit inventore deserunt? Magni nulla voluptatum libero
+                assumenda nam? Culpa delectus at magnam eum mollitia dolores hic
+                similique! Delectus, maiores officia est saepe nam laudantium
+                consectetur impedit cupiditate natus fugit sint commodi dolorem
+                praesentium similique id in beatae. Accusamus
               </p>
-            ))}
+            </div>
           </div>
-          <div className="semi-container2">
-            <p className="container-text-heading">SADIYAT ISLAND</p>
-            {details3.map((detail, id) => (
-              <p className="container1-text" key={id}>
-                {detail.id}. {detail.text}
-              </p>
-            ))}
-          </div>
-          <div className="semi-container3">
-            <p className="container-text-heading">PREMIUM SPACES</p>
-            {details4.map((detail, id) => (
-              <p onClick={handleClick} className="container1-text" key={id}>
-                {detail.id}. {detail.text}
-              </p>
-            ))}
-          </div>
+          <button className="back-btn" onClick={handleToggle}>
+            Back
+          </button>
         </div>
-      </div>
-      <div
-        className="indicater"
-        style={{
-          top: top,
-          right: right,
-          visibility: visibility,
-        }}
-      >
-        <Lottie options={defaultOptions} className="lottie" />
-      </div>
+      )}
     </div>
   );
 }
