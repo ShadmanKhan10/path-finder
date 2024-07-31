@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Abu Dhabi Basis";
+  src: url("./assets/AbuDhabiBasis-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

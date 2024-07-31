@@ -1,0 +1,79 @@
+.bg-image {
+  width: 100vw;
+  display: block;
+  aspect-ratio: 16/9;
+}
+.test {
+  font-family: "Abu Dhabi Basis";
+}
+
+.main-text-container {
+  /* border: 2px solid black; */
+  width: 57vw;
+  height: 41vw;
+  position: absolute;
+  top: 15vw;
+  left: 1vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.text-container1 {
+  /* border: 2px solid rgb(249, 9, 9); */
+  height: 100%;
+  width: 48%;
+}
+.container1-text {
+  color: rgb(216, 214, 214);
+  font-size: 1.03vw;
+  line-height: 0.5vw;
+  font-family: "Abu Dhabi Basis";
+}
+
+.text-container2 {
+  /* border: 2px solid rgb(18, 69, 235); */
+  height: 100%;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.semi-container1 {
+  /* border: 2px solid rgb(23, 236, 41); */
+  height: 38%;
+  width: 100%;
+}
+.semi-container2 {
+  /* border: 2px solid rgb(23, 236, 41); */
+  height: 25%;
+  width: 100%;
+}
+.semi-container3 {
+  /* border: 2px solid rgb(23, 236, 41); */
+  height: 35%;
+  width: 100%;
+}
+
+.container-text-heading {
+  color: rgb(216, 214, 214);
+  font-size: 1.08vw;
+  line-height: 0.5vw;
+  font-family: "Abu Dhabi Basis";
+  text-decoration: underline;
+}
+.indicater {
+  border: 0.2vw solid blue;
+  height: 2.6vw;
+  width: 2.5vw;
+  position: absolute;
+  /* top: 41.15vw; */
+  /* top: 38.59vw;
+  right: 2.4vw; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lottie {
+  height: 2vw;
+  width: 2vw;
+}
